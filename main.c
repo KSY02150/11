@@ -1,15 +1,20 @@
-//간접 참조 연산자//
+//포인터와 함수//
 #include <stdio.h>
 #include <stdlib.h>
 
+void swap(int *x, int *y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 int main(void)
 {
-    int i = 300;
-
-    int *pi = &i;
-    char *pc = (char*)&i;
-
-
-    printf("%i, %i, %i\n", i, *pi, *pc);
-    return 0;  //결과가 300, 300, 44로 나옴
+    int a = 3;
+    int b = 5;
+    swap(&a,&b); //변수 주소 넣기
+    printf("a: %i, b: %i\n", a, b);
+    return 0;
 }
